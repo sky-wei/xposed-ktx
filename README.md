@@ -43,6 +43,20 @@ XposedPlus.findAndAfterHookMethod(
         }
 ```
 
+### Gradle引入
+```
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+dependencies {
+    implementation 'com.github.jingcai-wei:xposed-ktx:1.1'
+}
+```
+
 ## License
 
     Copyright 2018 The sky Authors
