@@ -183,8 +183,8 @@ object XposedPlus {
 
     fun findAndHookMethodReplacement(
             tClass: Class<*>, methodName: String,
-            replaceHook: (param: XC_MethodHook.MethodHookParam) -> Any?,
-            vararg parameterTypes: Any): XC_MethodHook.Unhook {
+            vararg parameterTypes: Any,
+            replaceHook: (param: XC_MethodHook.MethodHookParam) -> Any?): XC_MethodHook.Unhook {
 
         val parameterTypesAndCallback = arrayOf(
                 *parameterTypes, newMethodReplacement(replaceHook))
