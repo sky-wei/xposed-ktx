@@ -24,21 +24,19 @@ XposedHelpers.findAndHookMethod(
 ### 扩展使用
 ```kotlin
 // 最先需要初始化
-XposedPlus.initDefaultLoadPackage(param)
-
-XposedPlus.findAndHookMethod(
-                "com.app.Application", "onCreate",
-                beforeHook = {
-                    // ...
-                },
-                afterHook = {
-                    // ...
-                })
+XposedPlus.setDefaultInstance(XposedPlus.Builder(param))
+                
+findMethod("com.app.Application", "onCreate")
+        .hook({
+            // ...
+        }, {
+            // ...
+        })                
 
 或者只处理AfterHook方法：
 
-XposedPlus.findAndAfterHookMethod(
-                "com.app.Application", "onCreate") {
+findMethod("com.app.Application", "onCreate")
+        .after {
             // afterHook ...
         }
 ```
@@ -53,6 +51,7 @@ allprojects {
 }
 
 dependencies {
+    implementation 'com.github.sky-wei:xposed-javax:1.0.8'
     implementation 'com.github.jingcai-wei:xposed-ktx:1.1'
 }
 ```
