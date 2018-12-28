@@ -52,7 +52,7 @@ allprojects {
 
 dependencies {
     implementation 'com.github.sky-wei:xposed-javax:1.0.9'
-    implementation 'com.github.jingcai-wei:xposed-ktx:1.1'
+    implementation 'com.github.sky-wei:xposed-ktx:1.3.1'
 }
 ```
 
