@@ -2,6 +2,7 @@ package com.sky.xposed.ktx
 
 import com.sky.xposed.javax.MethodHook
 import com.sky.xposed.javax.XposedPlus
+import com.sky.xposed.javax.XposedUtil
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
@@ -10,23 +11,23 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
  */
 
 fun findMethod(className: String, methodName: String, vararg parameterTypes: Any): MethodHook {
-    return XposedPlus.get().findMethod(className, methodName, *parameterTypes)
+    return XposedUtil.findMethod(className, methodName, *parameterTypes)
 }
 
 fun findMethod(clazz: Class<*>, methodName: String, vararg parameterTypes: Any): MethodHook {
-    return XposedPlus.get().findMethod(clazz, methodName, *parameterTypes)
+    return XposedUtil.findMethod(clazz, methodName, *parameterTypes)
 }
 
 fun findConstructor(clazz: Class<*>, vararg parameterTypes: Any): MethodHook {
-    return XposedPlus.get().findConstructor(clazz, *parameterTypes)
+    return XposedUtil.findConstructor(clazz, *parameterTypes)
 }
 
 fun findConstructor(className: String, vararg parameterTypes: Any): MethodHook {
-    return XposedPlus.get().findConstructor(className, *parameterTypes)
+    return XposedUtil.findConstructor(className, *parameterTypes)
 }
 
 fun findClass(className: String): Class<*> {
-    return XposedPlus.get().findClass(className)
+    return XposedUtil.findClass(className)
 }
 
 fun withPackage(packageParam: XC_LoadPackage.LoadPackageParam): XposedPlus {
